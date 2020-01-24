@@ -8,6 +8,10 @@ public class run {
 		System.out.println("IT DID WORK");
 		System.out.println("did it really?");
 		System.out.println("I hope this works plesaseee");
+				System.out.println("I hope this works plesaseee");
+		System.out.println("I hope this works plesaseee");
+		System.out.println("I hope this works plesaseee");
+
 
 		
 	}
