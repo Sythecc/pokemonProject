@@ -27,5 +27,4 @@ public class caughtPokemon extends pokemon {
 		moves.set(3, move3);
 		move3pp = move3.getPp();
 	}
-
 }
