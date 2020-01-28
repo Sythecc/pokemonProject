@@ -11,10 +11,10 @@ public class caughtPokemon extends pokemon {
 	private int move3pp;
 
 	public caughtPokemon(pokemon mon, move move0, move move1, move move2, move move3) {
-		super(mon.getName(), mon.getType(), mon.getNum(), mon.getHp(), mon.getPhsAtk(), mon.getPhsDef(), mon.getSpAtk(),
-				mon.getSpDef(), mon.getSpeed());
-		this.currentHp = mon.getHp(); 
-		setMoves(move0,move1,move2,move3);
+		super(mon.getName(), mon.getType1(), mon.getType2(), mon.getNum(), mon.getHp(), mon.getPhsAtk(),
+				mon.getPhsDef(), mon.getSpAtk(), mon.getSpDef(), mon.getSpeed());
+		this.currentHp = mon.getHp();
+		setMoves(move0, move1, move2, move3);
 	}
 
 	public void setMoves(move move0, move move1, move move2, move move3) {
