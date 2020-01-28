@@ -5,7 +5,8 @@ public class run {
 
 	public static void main(String[] args) throws Exception {
 		initPokemon.initPokemon();
-		pokedex.getMon(569);
+		//pokedex.getMon(236);
+		pokedex.getMon("Meltan");
 	}
 
 }

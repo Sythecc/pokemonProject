@@ -18,4 +18,12 @@ public class pokedex {
 		num--;
 		System.out.println(pokedex.get(num));
 	}
+	public static void getMon(String name) {
+		for(pokemon mon : pokedex) {
+			String monName = mon.getName();
+			if(monName.toLowerCase().equals(name.toLowerCase())) {
+				System.out.println(mon);
+			}
+		}
+	}
 }
