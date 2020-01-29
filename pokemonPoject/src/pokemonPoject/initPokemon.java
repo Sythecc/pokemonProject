@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+@SuppressWarnings("unused")
 public class initPokemon {
 	public static void initPokemon() throws ParseException {
 		// pokemon name = new pokemon(name, type, num, hp, phsAtk, phsDef, spAtk, spDef,

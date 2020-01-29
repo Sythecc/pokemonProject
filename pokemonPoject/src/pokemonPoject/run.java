@@ -1,6 +1,7 @@
 package pokemonPoject;
 
 
+@SuppressWarnings("unused")
 public class run {
 
 	public static void main(String[] args) throws Exception {

@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+@SuppressWarnings("unused")
 public class initMoves {
 	public static void initMoves() throws ParseException {
 		// move name = new move(name, type, atkType, atk, hitChance, pp);

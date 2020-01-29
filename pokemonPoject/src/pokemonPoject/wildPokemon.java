@@ -2,6 +2,7 @@ package pokemonPoject;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
 public class wildPokemon extends pokemon {
 	private ArrayList<move> moves = new ArrayList<move>(3);
 	private ArrayList<Integer> pp = new ArrayList<Integer>(3);

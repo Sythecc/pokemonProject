@@ -3,6 +3,7 @@ package pokemonPoject;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class movedex {
 	private static List<move> movedex = new ArrayList<move>();
 

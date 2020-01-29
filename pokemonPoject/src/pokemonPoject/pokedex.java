@@ -3,6 +3,7 @@ package pokemonPoject;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class pokedex {
 	private static List<pokemon> pokedex = new ArrayList<pokemon>();
 

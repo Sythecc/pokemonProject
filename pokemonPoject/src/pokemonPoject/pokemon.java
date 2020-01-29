@@ -1,5 +1,6 @@
 package pokemonPoject;
 
+@SuppressWarnings("unused")
 public class pokemon {
 	private String name;
 	private String type1;
