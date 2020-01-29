@@ -70,7 +70,6 @@ public class initMoves {
 		}
 
 		if (category != null && power != 0 && acc != 0 && pp != 0) {
-			System.out.println(name);
 			movedex.addMove(new move(name, type, category, power, acc, pp));
 		}
 

@@ -5,11 +5,8 @@ import java.util.ArrayList;
 @SuppressWarnings("unused")
 public class caughtPokemon extends pokemon {
 	private ArrayList<move> moves = new ArrayList<move>(3);
+	private ArrayList<Integer> pp = new ArrayList<Integer>(3);
 	private int currentHp;
-	private int move0pp;
-	private int move1pp;
-	private int move2pp;
-	private int move3pp;
 
 	public caughtPokemon(pokemon mon, move move0, move move1, move move2, move move3) {
 		super(mon.getName(), mon.getType1(), mon.getType2(), mon.getNum(), mon.getHp(), mon.getPhsAtk(),
@@ -18,14 +15,22 @@ public class caughtPokemon extends pokemon {
 		setMoves(move0, move1, move2, move3);
 	}
 
-	public void setMoves(move move0, move move1, move move2, move move3) {
-		moves.set(0, move0);
-		move0pp = move0.getPp();
-		moves.set(1, move1);
-		move1pp = move1.getPp();
-		moves.set(2, move2);
-		move2pp = move2.getPp();
-		moves.set(3, move3);
-		move3pp = move3.getPp();
+	private void setMoves(move move0, move move1, move move2, move move3) {
+		this.moves.add(move0);
+		this.pp.add(move0.getPp());
+		this.moves.add(move1);
+		this.pp.add(move1.getPp());
+		this.moves.add(move2);
+		this.pp.add(move2.getPp());
+		this.moves.add(move3);
+		this.pp.add(move3.getPp());
+
+	}
+
+	public String toString() {
+		return super.toString() + "Move0 :" + moves.get(0) + " PP : " + pp.get(0) + "\n" + "Move1 :" + moves.get(1)
+				+ " PP : " + pp.get(1) + "\n" + "Move2 :" + moves.get(2) + " PP : " + pp.get(2) + "\n" + "Move3 :"
+				+ moves.get(3) + " PP : " + pp.get(3);
+
 	}
 }

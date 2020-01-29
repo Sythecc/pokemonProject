@@ -29,12 +29,27 @@ public class wildPokemon extends pokemon {
 			}
 		}
 	}
+
+	public move getMove0() {
+		return moves.get(0);
+	}
+
+	public move getMove1() {
+		return moves.get(1);
+	}
+
+	public move getMove2() {
+		return moves.get(2);
+	}
+
+	public move getMove3() {
+		return moves.get(3);
+	}
+
 	public String toString() {
-		return super.toString() +
-				"Move0 :" + moves.get(0) + " PP : " +pp.get(0)+ "\n" +
-				"Move1 :" + moves.get(1) + " PP : " +pp.get(1)+ "\n" +
-				"Move2 :" + moves.get(2) + " PP : " +pp.get(2)+ "\n" +
-				"Move3 :" + moves.get(3) + " PP : " +pp.get(3);
+		return super.toString() + "Move0 :" + moves.get(0) + " PP : " + pp.get(0) + "\n" + "Move1 :" + moves.get(1)
+				+ " PP : " + pp.get(1) + "\n" + "Move2 :" + moves.get(2) + " PP : " + pp.get(2) + "\n" + "Move3 :"
+				+ moves.get(3) + " PP : " + pp.get(3);
 
 	}
 }
