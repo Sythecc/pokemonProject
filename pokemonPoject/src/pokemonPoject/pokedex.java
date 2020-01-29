@@ -14,16 +14,17 @@ public class pokedex {
 		pokedex.add(mon);
 	}
 	
-	public static void getMon(int num) {
+	public static pokemon getMon(int num) {
 		num--;
-		System.out.println(pokedex.get(num));
+		return pokedex.get(num);
 	}
-	public static void getMon(String name) {
+	public static pokemon getMon(String name) {
 		for(pokemon mon : pokedex) {
 			String monName = mon.getName();
 			if(monName.toLowerCase().equals(name.toLowerCase())) {
-				System.out.println(mon);
+				return mon;
 			}
 		}
+		return null;
 	}
 }

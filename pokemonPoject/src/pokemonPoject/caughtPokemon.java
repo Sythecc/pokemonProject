@@ -3,7 +3,7 @@ package pokemonPoject;
 import java.util.ArrayList;
 
 public class caughtPokemon extends pokemon {
-	private ArrayList<move> moves = new ArrayList<move>(10);
+	private ArrayList<move> moves = new ArrayList<move>(3);
 	private int currentHp;
 	private int move0pp;
 	private int move1pp;

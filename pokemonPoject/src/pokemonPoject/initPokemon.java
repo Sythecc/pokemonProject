@@ -39,25 +39,17 @@ public class initPokemon {
 		JSONObject nameObj = (JSONObject) mon.get("name");
 		// Get mon name
 		String name = (String) nameObj.get("english");
-		System.out.println(name);
 		// Get mon id
-
 		int id = Math.toIntExact((Long) mon.get("id"));
-		System.out.println(id);
-
 		// Get mon type
 		JSONArray type = (JSONArray) mon.get("type");
 		String type1 = (String) type.get(0);
-		System.out.println(type1);
 		String type2;
 		if (type.size() == 2) {
 			type2 = (String) type.get(1);
-			System.out.println(type2);
 		} else {
 			type2 = null;
-			System.out.println(type2);
 		}
-
 		// Get mon base
 		JSONObject base = (JSONObject) mon.get("base");
 		int hp = Math.toIntExact((Long) base.get("HP"));
@@ -66,12 +58,6 @@ public class initPokemon {
 		int spAtk = Math.toIntExact((Long) base.get("Sp. Attack"));
 		int spDef = Math.toIntExact((Long) base.get("Sp. Defense"));
 		int speed = Math.toIntExact((Long) base.get("Speed"));
-		System.out.println(hp);
-		System.out.println(phsAtk);
-		System.out.println(phsDef);
-		System.out.println(spAtk);
-		System.out.println(spDef);
-		System.out.println(speed);
 
 		pokedex.addMon((new pokemon(name, type1, type2, id, hp, phsAtk, phsDef, spAtk, spDef, speed)));
 
