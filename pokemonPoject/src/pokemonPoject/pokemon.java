@@ -66,6 +66,10 @@ public class pokemon {
 	public int getSpeed() {
 		return speed;
 	}
+	
+	public void dealDamage(double damage) {
+		hp-=(int)damage;
+	}
 
 	public String toString() {
 		return "Number :" + num + "\n" +

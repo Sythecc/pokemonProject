@@ -15,6 +15,13 @@ public class caughtPokemon extends pokemon {
 		setMoves(move0, move1, move2, move3);
 	}
 
+	public caughtPokemon(wildPokemon mon) {
+		super(mon.getName(), mon.getType1(), mon.getType2(), mon.getNum(), mon.getHp(), mon.getPhsAtk(),
+				mon.getPhsDef(), mon.getSpAtk(), mon.getSpDef(), mon.getSpeed());
+		this.currentHp = mon.getHp();
+		setMoves(mon.getMove0(), mon.getMove1(), mon.getMove2(), mon.getMove3());
+	}
+
 	private void setMoves(move move0, move move1, move move2, move move3) {
 		this.moves.add(move0);
 		this.pp.add(move0.getPp());
@@ -24,7 +31,29 @@ public class caughtPokemon extends pokemon {
 		this.pp.add(move2.getPp());
 		this.moves.add(move3);
 		this.pp.add(move3.getPp());
+	}
+	
+	public move getMove(int num) {
+		return moves.get(num);
+	}
+	public move getMove0() {
+		return moves.get(0);
+	}
 
+	public move getMove1() {
+		return moves.get(1);
+	}
+
+	public move getMove2() {
+		return moves.get(2);
+	}
+
+	public move getMove3() {
+		return moves.get(3);
+	}
+	
+	public ArrayList<move> getMoves() {
+		return moves;
 	}
 
 	public String toString() {
@@ -33,4 +62,6 @@ public class caughtPokemon extends pokemon {
 				+ moves.get(3) + " PP : " + pp.get(3);
 
 	}
+
+
 }
