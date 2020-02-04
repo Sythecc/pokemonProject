@@ -52,8 +52,7 @@ public class wildPokemon extends pokemon {
 	}
 
 	public static void createRandomWildPokemon() {
-		int pokemonNum = (int) (Math.random() * (808) + 1);
-		wildPokemonList.add(new wildPokemon(pokedex.getMon(pokemonNum)));
+		wildPokemonList.add(new wildPokemon(pokedex.getMon((int) (Math.random() * (808) + 1))));
 	}
 
 	public static wildPokemon getMostRecentWildMon() {

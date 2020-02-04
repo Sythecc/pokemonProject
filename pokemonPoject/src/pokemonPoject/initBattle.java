@@ -12,8 +12,10 @@ public class initBattle {
 		int moveCounter = 1;
 		int hpCounter = 0;
 		move moveChosen;
+		move enemyMoveChosen;
 		double damage = 0;
 		System.out.println("You encountered a Wild " + newBattle.getEnemy().getName() + "!!!!");
+		System.out.println("You choose " + party.getMon(monster).getName()+"!!!");
 		System.out.println("_________________________________");
 		while (!newBattle.isBattleOver()) {
 			moveCounter = 1;
@@ -34,33 +36,54 @@ public class initBattle {
 				// deal damage
 				newBattle.getEnemy().dealDamage(damage);
 				// sysout damage log
-				System.out.println(party.getMon(monster).getName() + " used " + moveChosen.getName() + " and did "
+				System.out.println("Your " + party.getMon(monster).getName() + " used " + moveChosen.getName() + " and did "
 						+ (int) damage + " damage!");
-				System.out.println("The wild " + newBattle.getEnemy().getName() + " went from " + hpCounter + "hp to "
-						+ newBattle.getEnemy().getHp() +"hp!");
+				System.out.println("The wild " + newBattle.getEnemy().getName() + " went from " + hpCounter + " hp to "
+						+ newBattle.getEnemy().getHp() + " hp!");
 				// if he aint dead
 				if (newBattle.getEnemy().getHp() > 0) {
 					// chose a move
-					moveChosen = newBattle.getEnemy().getMove((int) Math.random() * 3 + 1);
+					enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 3 + 1);
 					// calc damage
-					damage = newBattle.attack(party.getMon(monster), moveChosen, newBattle.getEnemy());
+					damage = newBattle.attack(party.getMon(monster), enemyMoveChosen, newBattle.getEnemy());
+					// store inititial hp
+					hpCounter = party.getMon(monster).getHp();
 					// deal damage
 					party.getMon(monster).dealDamage(damage);
+					// sysout damage log
+					System.out.println("The wild " + newBattle.getEnemy().getName() + " used " + enemyMoveChosen.getName() + " and did "
+							+ (int) damage + " damage!");
+					System.out.println("Your " + party.getMon(monster).getName() + " went from " + hpCounter + " hp to "
+							+ party.getMon(monster).getHp() + " hp!");
 				}
 				// if you are slower
 			} else {
 				// chose a move
-				moveChosen = newBattle.getEnemy().getMove((int) Math.random() * 3 + 1);
+				enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 4 + 1);
 				// calc damage
-				damage = newBattle.attack(party.getMon(monster), moveChosen, newBattle.getEnemy());
+				damage = newBattle.attack(party.getMon(monster), enemyMoveChosen, newBattle.getEnemy());
+				// store inititial hp
+				hpCounter = party.getMon(monster).getHp();
 				// deal damage
 				party.getMon(monster).dealDamage(damage);
+				// sysout damage log
+				System.out.println("The wild " + newBattle.getEnemy().getName() + " used " + enemyMoveChosen.getName() + " and did "
+						+ (int) damage + " damage!");
+				System.out.println("Your " + party.getMon(monster).getName() + " went from " + hpCounter + " hp to "
+						+ party.getMon(monster).getHp() + " hp!");
 				// if u arent dead
-				if (newBattle.getEnemy().getHp() > 0) {
+				if (party.getMon(monster).getHp() > 0) {
 					// calc damage
 					damage = newBattle.attack(newBattle.getEnemy(), moveChosen, party.getMon(monster));
+					// store inititial hp
+					hpCounter = newBattle.getEnemy().getHp();
 					// deal damage
 					newBattle.getEnemy().dealDamage(damage);
+					// sysout damage log
+					System.out.println("Your " + party.getMon(monster).getName() + " used " + moveChosen.getName() + " and did "
+							+ (int) damage + " damage!");
+					System.out.println("The wild " + newBattle.getEnemy().getName() + " went from " + hpCounter + " hp to "
+							+ newBattle.getEnemy().getHp() + " hp!");
 				}
 			}
 		}

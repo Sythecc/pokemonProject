@@ -13,7 +13,7 @@ public class battle {
 	}
 
 	public boolean isBattleOver() {
-		if (enemy.getHp() <= 0) {
+		if (enemy.getHp() <= 0 || party.get(0).getHp() <= 0) {
 			return true;
 		} else {
 			return false;
@@ -33,12 +33,12 @@ public class battle {
 		if (moveChosen.getType() == mon.getType1() || moveChosen.getType() == mon.getType2()) {
 			STAB = 1.5;
 		}
-		if (Math.random() * 100 > moveChosen.getHitChance()) {
+		if (Math.random() * 101 < moveChosen.getHitChance()) {
 			if (moveChosen.getAtkType() == "Physical") {
-				damage = ((((2 * 50 / 5 + 2) * mon.getPhsAtk() * moveChosen.getPower() / target.getPhsDef()) / 50) + 2)
+				damage = ((((2 * 25 / 5 + 2) * mon.getPhsAtk() * moveChosen.getPower() / target.getPhsDef()) / 50) + 2)
 						* STAB * (Math.random() * (100 - 85) + 85) / 100;
 			} else {
-				damage = ((((2 * 50 / 5 + 2) * mon.getSpAtk() * moveChosen.getPower() / target.getSpDef()) / 50) + 2)
+				damage = ((((2 * 25 / 5 + 2) * mon.getSpAtk() * moveChosen.getPower() / target.getSpDef()) / 50) + 2)
 						* STAB * (Math.random() * (100 - 85) + 85) / 100;
 			}
 		}
@@ -53,12 +53,12 @@ public class battle {
 		if (moveChosen.getType() == mon.getType1() || moveChosen.getType() == mon.getType2()) {
 			STAB = 1.5;
 		}
-		if (Math.random() * 100 > moveChosen.getHitChance()) {
+		if (Math.random() * 101 < moveChosen.getHitChance()) {
 			if (moveChosen.getAtkType() == "Physical") {
-				damage = ((((2 * 50 / 5 + 2) * mon.getPhsAtk() * moveChosen.getPower() / target.getPhsDef()) / 50) + 2)
+				damage = ((((2 * 25 / 5 + 2) * mon.getPhsAtk() * moveChosen.getPower() / target.getPhsDef()) / 50) + 2)
 						* STAB * (Math.random() * (100 - 85) + 85) / 100;
 			} else {
-				damage = ((((2 * 50 / 5 + 2) * mon.getSpAtk() * moveChosen.getPower() / target.getSpDef()) / 50) + 2)
+				damage = ((((2 * 25 / 5 + 2) * mon.getSpAtk() * moveChosen.getPower() / target.getSpDef()) / 50) + 2)
 						* STAB * (Math.random() * (100 - 85) + 85) / 100;
 			}
 		}
