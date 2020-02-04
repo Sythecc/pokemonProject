@@ -15,6 +15,9 @@ public class run {
 		caughtPokemon caught1 = new caughtPokemon(wildPokemon.getMostRecentWildMon());
 		party.addMon(caught1);
 		initBattle.initBattle();
+		wildPokemon.createRandomWildPokemon();
+		party.addMon(caught1);
+		initBattle.initBattle();
 	}
 
 }
