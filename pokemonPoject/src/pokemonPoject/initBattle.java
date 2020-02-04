@@ -51,7 +51,7 @@ public class initBattle {
 					// if he aint dead
 					if (newBattle.getEnemy().getHp() > 0) {
 						// chose a move
-						enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 3 + 1);
+						enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 3);
 						// calc damage
 						damage = newBattle.attack(party.getMon(monster), enemyMoveChosen, newBattle.getEnemy());
 						// store inititial hp
@@ -67,7 +67,7 @@ public class initBattle {
 					// if you are slower
 				} else {
 					// chose a move
-					enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 4 + 1);
+					enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 3);
 					// calc damage
 					damage = newBattle.attack(party.getMon(monster), enemyMoveChosen, newBattle.getEnemy());
 					// store inititial hp
@@ -151,7 +151,7 @@ public class initBattle {
 				// do enemy attack after swapping
 				monster = Integer.parseInt(input) - 1;
 				// chose a move
-				enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 4 + 1);
+				enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 3);
 				// calc damage
 				damage = newBattle.attack(party.getMon(monster), enemyMoveChosen, newBattle.getEnemy());
 				// store inititial hp
