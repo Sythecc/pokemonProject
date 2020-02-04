@@ -13,10 +13,15 @@ public class battle {
 	}
 
 	public boolean isBattleOver() {
-		if (enemy.getHp() <= 0 || party.get(0).getHp() <= 0) {
+		if (enemy.getHp() <= 0) {
 			return true;
 		} else {
-			return false;
+			for(caughtPokemon mon : party) {
+				if(!mon.isDead()) {
+					return false;
+				}
+			}
+			return true;
 		}
 	}
 

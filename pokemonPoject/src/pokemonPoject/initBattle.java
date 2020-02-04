@@ -24,6 +24,8 @@ public class initBattle {
 			System.out.println("(A)ttack or (S)wap?");
 			input = scan.next();
 			if (input.toLowerCase().equals("a")) {
+				System.out.println(party.getMon(monster).getName() + "'s moves:");
+				System.out.println("_________________________________");
 				moveCounter = 1;
 				for (move move : party.getMon(monster).getMoves()) {
 					System.out.println("Move " + moveCounter);
@@ -94,6 +96,7 @@ public class initBattle {
 				}
 			} else if (input.toLowerCase().equals("s")) {
 				System.out.println("Who would you like to swap to?");
+				System.out.println("_________________________________");
 				monCounter = 1;
 				for (caughtPokemon mon : party.getParty()) {
 					System.out.print(monCounter + " ");
@@ -104,15 +107,108 @@ public class initBattle {
 				valid = false;
 				while (!valid) {
 					input = scan.next();
-					if(Integer.parseInt(input) < party.getParty().size()+1 && Integer.parseInt(input) > 0) {
-						valid = true;
-					}else {
+					if (Integer.parseInt(input) < party.getParty().size() + 1 && Integer.parseInt(input) > 0) {
+						if ((Integer.parseInt(input) - 1) == monster) {
+							System.out.println("Your " + party.getMon(Integer.parseInt(input) - 1).getName()
+									+ " is already out in battle!");
+							System.out.println("Who would you like to swap to?");
+							System.out.println("_________________________________");
+							monCounter = 1;
+							for (caughtPokemon mon : party.getParty()) {
+								System.out.print(monCounter + " ");
+								System.out.println(mon.getName());
+								System.out.println("_________________________________");
+								monCounter++;
+							}
+						} else if (!party.getMon(Integer.parseInt(input) - 1).isDead()) {
+							valid = true;
+						} else {
+							System.out.println("Your " + party.getMon(Integer.parseInt(input) - 1).getName()
+									+ " is fainted and cannot battle!");
+							System.out.println("Who would you like to swap to?");
+							System.out.println("_________________________________");
+							monCounter = 1;
+							for (caughtPokemon mon : party.getParty()) {
+								System.out.print(monCounter + " ");
+								System.out.println(mon.getName());
+								System.out.println("_________________________________");
+								monCounter++;
+							}
+						}
+					} else {
 						System.out.println("Invalid Input");
+						System.out.println("Who would you like to swap to?");
+						System.out.println("_________________________________");
+						monCounter = 1;
+						for (caughtPokemon mon : party.getParty()) {
+							System.out.print(monCounter + " ");
+							System.out.println(mon.getName());
+							System.out.println("_________________________________");
+							monCounter++;
+						}
 					}
-					monster = Integer.parseInt(input);
 				}
+				// do enemy attack after swapping
+				monster = Integer.parseInt(input) - 1;
+				// chose a move
+				enemyMoveChosen = newBattle.getEnemy().getMove((int) Math.random() * 4 + 1);
+				// calc damage
+				damage = newBattle.attack(party.getMon(monster), enemyMoveChosen, newBattle.getEnemy());
+				// store inititial hp
+				hpCounter = party.getMon(monster).getHp();
+				// deal damage
+				party.getMon(monster).dealDamage(damage);
+				// sysout damage log
+				System.out.println("The wild " + newBattle.getEnemy().getName() + " used " + enemyMoveChosen.getName()
+						+ " and did " + (int) damage + " damage!");
+				System.out.println("Your " + party.getMon(monster).getName() + " went from " + hpCounter + " hp to "
+						+ party.getMon(monster).getHp() + " hp!");
 			} else {
 				System.out.println("Invalid Input!");
+			}
+			if (party.getMon(monster).isDead() && !newBattle.isBattleOver()) {
+				System.out.println(
+						"Your " + party.getMon(monster).getName() + " has fainted who would you like to swap to?");
+				valid = false;
+				System.out.println("_________________________________");
+				monCounter = 1;
+				for (caughtPokemon mon : party.getParty()) {
+					System.out.print(monCounter + " ");
+					System.out.println(mon.getName());
+					System.out.println("_________________________________");
+					monCounter++;
+				}
+				while (!valid) {
+					input = scan.next();
+					if (Integer.parseInt(input) < party.getParty().size() + 1 && Integer.parseInt(input) > 0) {
+						if (!party.getMon(Integer.parseInt(input) - 1).isDead()) {
+							valid = true;
+						} else {
+							System.out.println("Your " + party.getMon(Integer.parseInt(input) - 1).getName()
+									+ " is fainted and cannot battle!");
+							System.out.println("Who would you like to swap to?");
+							System.out.println("_________________________________");
+							monCounter = 1;
+							for (caughtPokemon mon : party.getParty()) {
+								System.out.print(monCounter + " ");
+								System.out.println(mon.getName());
+								System.out.println("_________________________________");
+								monCounter++;
+							}
+						}
+					} else {
+						System.out.println("Invalid Input");
+						System.out.println("Who would you like to swap to?");
+						System.out.println("_________________________________");
+						monCounter = 1;
+						for (caughtPokemon mon : party.getParty()) {
+							System.out.print(monCounter + " ");
+							System.out.println(mon.getName());
+							System.out.println("_________________________________");
+							monCounter++;
+						}
+					}
+				}
 			}
 		}
 	}
