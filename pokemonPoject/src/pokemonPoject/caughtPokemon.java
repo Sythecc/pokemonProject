@@ -32,10 +32,11 @@ public class caughtPokemon extends pokemon {
 		this.moves.add(move3);
 		this.pp.add(move3.getPp());
 	}
-	
+
 	public move getMove(int num) {
 		return moves.get(num);
 	}
+
 	public move getMove0() {
 		return moves.get(0);
 	}
@@ -51,9 +52,17 @@ public class caughtPokemon extends pokemon {
 	public move getMove3() {
 		return moves.get(3);
 	}
-	
+
 	public ArrayList<move> getMoves() {
 		return moves;
+	}
+
+	public boolean isDead() {
+		if (super.getHp() <= 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public String toString() {
@@ -62,6 +71,5 @@ public class caughtPokemon extends pokemon {
 				+ moves.get(3) + " PP : " + pp.get(3);
 
 	}
-
 
 }
